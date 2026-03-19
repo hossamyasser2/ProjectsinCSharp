@@ -15,7 +15,7 @@ class Program
         double answer = 0;
         double remainder = 0;
 
-        while (isTrue)
+        do
         {
             Console.WriteLine("\t+ | Addition");
             Console.WriteLine("\t- | Subtraction");
@@ -26,10 +26,10 @@ class Program
             operation = Console.ReadLine().ToLower();
             Console.WriteLine("Enter your first Number: ");
             firstNumber = Convert.ToDouble(Console.ReadLine());
-            if(operation != "#")
+            if (operation != "#")
             {
-            Console.WriteLine("Enter your second Number: ");
-            secondNumber = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter your second Number: ");
+                secondNumber = Convert.ToDouble(Console.ReadLine());
             }
             switch (operation)
             {
@@ -44,7 +44,7 @@ class Program
                     Console.WriteLine($"Answer: {firstNumber} - {secondNumber} = {answer}.");
                     break;
                 case "/":
-                    Console.WriteLine("You have chosen division.");;
+                    Console.WriteLine("You have chosen division."); ;
                     answer = firstNumber / secondNumber;
                     remainder = firstNumber % secondNumber;
                     Console.WriteLine($"Answer: {firstNumber} / {secondNumber} = {answer}.");
@@ -69,29 +69,8 @@ class Program
                     Console.WriteLine("This is not a valid operation.");
                     break;
             }
-            string repeat;
-            bool repeats = true;
-            while (repeats)
-            {
-                Console.WriteLine("Would you like to use the calculator again? Y/N");
-                repeat = Console.ReadLine().ToUpper();
-                switch (repeat)
-                {
-                    case "Y":
-                        isTrue = true;
-                        repeats = false;
-                        break;
-                    case "N":
-                        isTrue = false;
-                        repeats = false;
-                        break;
-                    default:
-                        Console.WriteLine("Please pick either Y/N.");
-                        break;
-                }
-            }
-        }
-
-
+            Console.WriteLine("Would you like to use the calculator again? (Y = Yes, Anything else = No)");
+        } while (Console.ReadLine() == "Y");
+        Console.WriteLine("Goodbye.");
     }
 }
